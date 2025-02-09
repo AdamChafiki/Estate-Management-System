@@ -7,7 +7,7 @@
     @endif
 
 
-    < <div class="flex bg-white rounded-lg shadow-lg overflow-hidden mx-auto max-w-sm lg:max-w-4xl">
+    <div class="flex bg-white rounded-lg shadow-lg overflow-hidden mx-auto max-w-sm lg:max-w-4xl">
         <div class="hidden lg:block lg:w-1/2 "
             style="background-image:url('https://media.istockphoto.com/id/1138615866/photo/sharp-corner-building-architecture-facade-in-gdansk-poland.jpg?s=1024x1024&w=is&k=20&c=q1_3KRRS9Sb17OFZjKghRRrUFBXBri6-jmohMFZfg-g=')">
         </div>
@@ -51,6 +51,6 @@
                 <span class="border-b w-1/5 md:w-1/4"></span>
             </div>
         </div>
-</div>
+    </div>
 </div>
 @endsection
