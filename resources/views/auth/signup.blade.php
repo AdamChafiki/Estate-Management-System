@@ -59,6 +59,14 @@
                 @error('password_confirmation')
                 <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
                 @enderror
+                <div class="mt-4">
+                    <label class="block text-gray-700 text-sm font-bold mb-2">Role</label>
+                    <select name="role"
+                        class="bg-gray-200 text-gray-700 focus:outline-none focus:shadow-outline border border-gray-300 rounded py-2 px-4 block w-full appearance-none">
+                        <option value="buyer">Buyer</option>
+                        <option value="agent">Agent</option>
+                    </select>
+                </div>
                 <div class="mt-8">
                     <button type="submit"
                         class="bg-blue-700 text-white font-bold py-2 px-4 w-full rounded hover:bg-blue-600">Sign

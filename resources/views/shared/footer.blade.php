@@ -1,6 +1,6 @@
     <div class="container px-4 mx-auto">
         <div class="pt-24 pb-11 mx-auto max-w-4xl"><a class="block md:mx-auto mb-5 max-w-max" href="#">
-                <img class="block h-8 w-auto" height="32" src="logo.png" alt="Your Company">
+                <img class="block h-8 w-auto" height="32" src="/logo.png" alt="Your Company">
             </a>
             <div class="flex flex-wrap justify-center -mx-3 lg:-mx-6">
                 <div class="w-full md:w-auto p-3 md:px-6"><a href="/terms"

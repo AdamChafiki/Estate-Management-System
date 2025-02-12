@@ -40,8 +40,7 @@
 
                 <div class="mt-8">
                     <button type="submit"
-                        class="bg-blue-700 text-white font-bold py-2 px-4 w-full rounded hover:bg-blue-600">Sign
-                        Up</button>
+                        class="bg-blue-700 text-white font-bold py-2 px-4 w-full rounded hover:bg-blue-600">Login</button>
                 </div>
             </form>
 

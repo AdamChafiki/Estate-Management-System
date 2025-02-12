@@ -24,10 +24,10 @@ class AuthController extends Controller
             'email' => 'required|email|unique:users',
             'password' => 'required|string|min:6',
             'password_confirmation' => 'same:password',
+            'role' => 'required|string|in:agent,buyer',
         ]);
 
 
-        // dd($request->all());
 
 
         // Create a new user
@@ -36,6 +36,7 @@ class AuthController extends Controller
             'lastName' => $request->lastName,
             'email' => $request->email,
             'password' => Hash::make($request->password),
+            'role' => $request->role,
         ]);
 
         // return route with success message
