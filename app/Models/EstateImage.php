@@ -19,6 +19,6 @@ class EstateImage extends Model
      */
     public function estate()
     {
-        return $this->belongsTo(Estate::class);
+        return $this->belongsTo(EstateImage::class);
     }
 }

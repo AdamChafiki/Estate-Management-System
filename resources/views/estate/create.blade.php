@@ -99,32 +99,32 @@
 <!-- CKEditor Integration for the description field -->
 <script src="https://cdn.ckeditor.com/ckeditor5/34.1.0/classic/ckeditor.js"></script>
 <script>
-ClassicEditor
-    .create(document.querySelector('#description'))
-    .catch(error => {
-        console.error(error);
-    });
+    ClassicEditor
+        .create(document.querySelector('#description'))
+        .catch(error => {
+            console.error(error);
+        });
 </script>
 
 <!-- JavaScript for Image Preview -->
 <script>
-const imagesInput = document.getElementById('images');
-const previewContainer = document.getElementById('image-preview');
+    const imagesInput = document.getElementById('images');
+    const previewContainer = document.getElementById('image-preview');
 
-imagesInput.addEventListener('change', function() {
-    previewContainer.innerHTML = '';
+    imagesInput.addEventListener('change', function() {
+        previewContainer.innerHTML = '';
 
-    Array.from(this.files).forEach(file => {
-        const reader = new FileReader();
-        reader.onload = function(e) {
-            const img = document.createElement('img');
-            img.src = e.target.result;
-            img.alt = file.name;
-            img.classList.add('w-full', 'h-24', 'object-cover', 'rounded-md', 'shadow');
-            previewContainer.appendChild(img);
-        };
-        reader.readAsDataURL(file);
+        Array.from(this.files).forEach(file => {
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                const img = document.createElement('img');
+                img.src = e.target.result;
+                img.alt = file.name;
+                img.classList.add('w-full', 'h-24', 'object-cover', 'rounded-md', 'shadow');
+                previewContainer.appendChild(img);
+            };
+            reader.readAsDataURL(file);
+        });
     });
-});
 </script>
 @endsection

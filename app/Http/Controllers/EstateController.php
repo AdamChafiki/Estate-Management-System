@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Estate;
 use App\Models\EstateImage;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -14,7 +15,15 @@ class EstateController extends Controller
      */
     public function index()
     {
-        return view('estate.index');
+        // Fetch estates for the authenticated user with their related images
+        $estates = Estate::with('images')->where('user_id', Auth::id())->get();
+
+        // If you need all images in a single collection, you can do:
+        $images = $estates->pluck('images')->flatten();
+
+
+        // Pass the data to the view
+        return view('estate.index', compact('estates', 'images'));
     }
 
     /**
@@ -64,15 +73,18 @@ class EstateController extends Controller
             }
         }
 
-        return redirect()->back()->with('success', 'Estate listing created successfully!');
+        return to_route('estate.index')->with('alert', [
+            'level'   => 'success',
+            'message' => 'Estate created successfully',
+        ]);
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(Estate $estate)
     {
-        //
+        dd($estate);
     }
 
     /**
@@ -96,6 +108,20 @@ class EstateController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $estate = Estate::find($id);
+
+        $estate->delete();
+        return redirect()->back()->with('alert', [
+            'level'   => 'success',
+            'message' => 'Estate deleted successfully',
+        ]);
+    }
+    /**
+     * Browze all estates
+     */
+    public function browze()
+    {
+        $estates = Estate::with('images')->get();
+        return view('estate.browze', compact('estates'));
     }
 }

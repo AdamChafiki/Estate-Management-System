@@ -49,4 +49,9 @@ Route::get('/account', function () {
 /*
  * Route to  @estatecontroller
  */
-Route::resource('estate', EstateController::class)->middleware('auth');
+Route::resource('estate', EstateController::class);
+Route::get('/browze', [EstateController::class, 'browze'])->name('browze');
+
+/*
+ * Route to view estate
+ */

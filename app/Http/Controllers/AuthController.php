@@ -87,6 +87,9 @@ class AuthController extends Controller
         // Log out the user
         Auth::logout();
 
+        // Invalidate the session
+        $request->session()->invalidate();
+
         // Regenerate the session to prevent session fixation
         $request->session()->regenerate();
 
