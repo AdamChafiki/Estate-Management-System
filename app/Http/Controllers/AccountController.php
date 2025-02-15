@@ -15,7 +15,6 @@ class AccountController extends Controller
     public function index()
     {
         $user  = Auth::user();
-        dd($user);
         return view('account.index', 'user');
     }
 
