@@ -3,6 +3,7 @@
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\EstateController;
 use Illuminate\Support\Facades\Route;
+use App\Events\MessageSend;
 
 /*
  * Route to view page
@@ -47,11 +48,24 @@ Route::get('/account', function () {
 
 
 /*
- * Route to  @estatecontroller
+ * Route to  @estatecontroller @method[ index ] [ create ] [ store ] [ show ] [ edit ] [ update ] [ destroy ] [ browze ]
  */
 Route::resource('estate', EstateController::class);
 Route::get('/browze', [EstateController::class, 'browze'])->name('browze');
 
 /*
- * Route to view estate
+ * Route to view contact
  */
+
+Route::get('/contact', function () {
+    return view('contact.index');
+})->name('contact');
+
+/*
+ * Route to view chat
+ */
+Route::get('/boadcast', function () {
+    $mesage = 'Hello World';
+    broadcast(new MessageSend($mesage));
+    return 'message sent';
+});

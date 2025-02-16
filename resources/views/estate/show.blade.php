@@ -26,7 +26,7 @@
                 <div>
                     <h1 class="text-3xl font-bold text-blue-600">{{ $estate->title }}</h1>
                     <p class="mt-2 text-2xl text-green-600 font-semibold">
-                        ${{ number_format($estate->price, 2) }}
+                        {{ number_format($estate->price, 2) }}DH
                     </p>
                     <div class="mt-4 flex items-center space-x-2">
                         <span class="inline-block bg-blue-100 text-blue-600 text-sm px-3 py-1 rounded-full">
@@ -45,7 +45,7 @@
                         </svg>
                         <span>{{ $estate->location }}</span>
                     </div>
-                    <div class="mt-6 text-gray-800 prose prose-blue max-w-none">
+                    <div class="mt-6 text-gray-500 prose prose-blue max-w-none">
                         {!! $estate->description !!}
                     </div>
                 </div>
@@ -61,10 +61,12 @@
                             {{ $estate->user->firstName }} {{ $estate->user->lastName }}
                         </span>
                     </div>
-                    <a href="/"
-                        class="inline-block bg-blue-600 text-white px-6 py-3 rounded hover:bg-blue-700 transition">
-                        Contact
+                @if (Auth::check() && Auth::user()->id != $estate->user_id)
+                    <a href="mailto:{{ $estate->user->email }}"
+                        class="block w-full bg-blue-600 text-white text-center font-semibold py-2 rounded hover:bg-blue-700 transition">
+                        Contact Seller
                     </a>
+                @endif
                 </div>
             </div>
         </div>
@@ -72,8 +74,8 @@
 </div>
 
 <script>
-    function changeMainImage(src) {
-        document.getElementById('mainImage').src = src;
-    }
+function changeMainImage(src) {
+    document.getElementById('mainImage').src = src;
+}
 </script>
 @endsection
