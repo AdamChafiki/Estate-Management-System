@@ -89,3 +89,8 @@ Route::post('/broadcast', function (Request $request) {
 
   return response()->json(['status' => 'Message sent', 'message' => $message]);
 })->name('broadcast')->middleware('auth');
+
+/*
+ * Route to view contact
+ */
+Route::get('/contact', [ContactController::class, 'show'])->name('contact.show')->middleware('auth');
