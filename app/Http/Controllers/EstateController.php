@@ -84,8 +84,8 @@ class EstateController extends Controller
    */
   public function show(Estate $estate)
   {
-    $images = Estate::find(3)->images;
-    $agent = Estate::find(3)->user;
+    $images = $estate->images;
+    $agent = $estate->user;
     return view('estate.show', compact('estate', 'images', 'agent'));
   }
 
